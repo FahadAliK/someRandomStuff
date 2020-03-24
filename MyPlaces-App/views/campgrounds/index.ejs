@@ -1,0 +1,36 @@
+<%- include('../partials/header.ejs') %>
+
+
+
+<!-- jumbotron goes here -->
+<div class="container">
+  <header class="jumbotron">
+    <div class="container">
+      <h1>Welcome To MyPlaces!</h1>
+      <p>View and save your places from all over the world</p>
+      <div>
+        <a class="btn btn-primary btn-lg" href="/campgrounds/new"
+          >Add New Place.!</a
+        >
+      </div>
+    </div>
+  </header>
+<!-- Grid goes here -->
+  <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+    <% campGrounds.forEach(element => { %>
+        <div class="col-md-3 col-sm-6">
+            <div class='thumbnail'>
+                <img src=" <%= element.image %> " alt="" />
+                <div class="caption">
+                    <h4><%= element.name %></h4>
+                </div>
+                <p><a href="/campgrounds/<%= element._id %>" class="btn btn-primary">More Info</a></p>
+            </div>
+        </div>
+    <% }) %>
+
+  </div>
+  
+</div>
+
+<%- include('../partials/footer.ejs') %>

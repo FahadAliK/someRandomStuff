@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<!-- SEMANTIC UI MENU STARTS HERE -->
+<div class="ui fixed inverted menu">
+  <div class="ui container">
+    <div class="header item"><i class="code icon"></i>Blog Site</div>
+    <a href="/" class="item">Home</a>
+    <a href="/blogs/new" class="item">New Blog</a>
+  </div>
+</div>
+<!-- BLOG  -->
+<div class="ui main text container segment">
+  <div class="ui huge header"><%= foundBlog.title %></div>
+  <div class="ui top attached">
+    <div class="item">
+      <img class="ui centered rounded image" src="<%= foundBlog.image %> " />
+      <div class="content">
+        <div><%= foundBlog.created.toDateString() %></div>
+      </div>
+      <div class="description">
+        <p><%- foundBlog.body %></p> 
+      </div>
+      <a class="ui orange inverted button" href="/blogs/<%= foundBlog._id %>/edit">Edit</a>
+      <form action="/blogs/<%= foundBlog._id %>?_method=DELETE" method="POST" id="delete">
+        <button class="ui red inverted button" >Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') %>

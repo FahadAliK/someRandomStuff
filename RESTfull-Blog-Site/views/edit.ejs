@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<!-- SEMANTIC UI MENU STARTS HERE -->
+<div class="ui fixed inverted menu">
+  <div class="ui container">
+    <div class="header item"><i class="code icon"></i>Blog Site</div>
+    <a href="/" class="item">Home</a>
+    <a href="/blogs/new" class="item">New Blog</a>
+  </div>
+</div>
+<!-- BLOG  -->
+<div class="ui main text container segment">
+  <div class="ui huge header">EDIT <%= foundBlog.title %></div>
+  <form class="ui form" action="/blogs/<%= foundBlog._id %>?_method=PUT" method="POST">
+    <div class="field">
+      <label for="">Title</label>
+      <input type="text" value="<%= foundBlog.title %> " name="blog[title]" />
+    </div>
+    <div class="field">
+      <label for="">Image</label>
+      <input type="text" value='<%= foundBlog.image %> ' name="blog[image]" />
+    </div>
+    <div class="field">
+      <label for="">Blog Content</label>
+      <textarea name="blog[body]" id="" cols="30" rows="10" required><%= foundBlog.body %></textarea>
+      <!-- <input type="text" placeholder="Blog Post Goes Here..." name='blog[body]'> -->
+    </div>
+    <input class="ui violet big inverted button" type="submit" />
+  </form>
+</div>
+
+<%- include('partials/footer') %>
